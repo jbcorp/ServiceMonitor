@@ -52,7 +52,44 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>cordysServices</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaLanguage>WSDL</schemaLanguage>
+							<generatePackage>com.intershop.cordysServices</generatePackage>
+							<schemaDirectory>${basedir}/src/main/resources/wsdl</schemaDirectory>
+							<schemaIncludes>
+								<include>FrontDesk.wsdl</include>
+							</schemaIncludes>
+							<generateDirectory>${basedir}/src/main/java</generateDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>pegaServices</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaLanguage>WSDL</schemaLanguage>
+							<generatePackage>com.intershop.pegaServices</generatePackage>
+							<schemaDirectory>${basedir}/src/main/resources/wsdl</schemaDirectory>
+							<schemaIncludes>
+								<include>PackageAvailability.wsdl</include>
+							</schemaIncludes>
+							<generateDirectory>${basedir}/src/main/java</generateDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+
 	</build>
 
 
